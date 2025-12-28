@@ -1,48 +1,82 @@
-# Google Summer of Code 2025 Proposal for Google DeepMind
+# Google Summer of Code 2025 — Google DeepMind
 
-My blog on Medium:
+## About
 
-(How I Landed a Google DeepMind Project in Google Summer of Code 2025: A Step-by-Step Guide)
+This repository documents my work during Google Summer of Code 2025 with Google DeepMind on the Gemma project. Over the summer, I built open-source tools for evaluating large language models, with a focus on systematic benchmarking and domain-specific assessment.
 
-https://medium.com/@heilcheng2-c/how-i-landed-a-google-deepmind-project-in-google-summer-of-code-2025-a-step-by-step-guide-ccb2dee66769
+---
 
-Update on May 7: Got selected by Google DeepMind for the Gemma project!
+## Blog
 
-Update on May 8: Got rejected by two other orgs lol.
+**How I Landed a Google DeepMind Project in Google Summer of Code 2025: A Step-by-Step Guide**
 
-I’m planning to make all my proposals public in case anyone’s curious about the GSoC application process.
+[Read on Medium](https://medium.com/@heilcheng2-c/how-i-landed-a-google-deepmind-project-in-google-summer-of-code-2025-a-step-by-step-guide-ccb2dee66769)
 
-Here’s what I submitted for DeepMind:
+### Updates
 
-- A proposal
-- A demo repo
-- A blog post (shared under the [demo] tag in the issue section of the Gemma repo):
-https://github.com/google-deepmind/gemma/issues/244
+- **May 7**: Got selected by Google DeepMind for the Gemma project.
+- **May 8**: Got rejected by two other orgs.
 
-Feel free to reach out. And good luck to anyone applying for the 2026 batch!
+I made my proposals public for anyone curious about the GSoC application process.
 
+**What I submitted for DeepMind:**
 
-## Comprehensive Benchmark Suite for Gemma Models 
+- A proposal (see PDF in this repo)
+- A blog post shared under the demo tag in the Gemma repo: [google-deepmind/gemma#244](https://github.com/google-deepmind/gemma/issues/244)
 
-### Project Overview
+Feel free to reach out. Good luck to anyone applying for the 2026 batch.
 
-This benchmark suite enables researchers and practitioners to systematically evaluate Google's Gemma language models across a variety of tasks. The project has been implemented and is available as an open-source repository.
+---
 
-### Key Features
+## Projects
 
-- Systematic evaluation of Gemma models across standard academic benchmarks
-- Comparison between different Gemma model sizes and variants
-- Benchmarking against other open models like Llama 2 and Mistral
-- Generation of informative visualizations for easy interpretation
-- Automation of the benchmarking process with reproducible scripts
-- Statistical validation of observed performance differences
+### OpenEvals
 
-### Implementation
+**Repository:** [github.com/heilcheng/openevals](https://github.com/heilcheng/openevals)
 
-The benchmark suite is structured with a modular architecture:
-- Core framework for loading models and datasets
-- Task-specific implementations (MMLU, coding, math reasoning, etc.)
-- Efficiency evaluation modules for measuring latency and memory usage
-- Visualization components for generating charts and reports
+OpenEvals is an open-source evaluation framework for large language models. I built this to provide a standardized way to benchmark open-weight models across established academic tasks.
 
-The implementation is available at: [github.com/heilcheng/gemma-benchmark](https://github.com/heilcheng/gemma-benchmark)
+**What it does:**
+
+- Runs models through standard benchmarks including MMLU, GSM8K, MATH, HumanEval, ARC, TruthfulQA, and more
+- Compares performance across model families: Gemma, Llama, Mistral, Qwen, DeepSeek, and any model on HuggingFace
+- Measures computational efficiency: latency, throughput, and memory usage
+- Generates statistical analyses with confidence intervals
+- Produces publication-ready visualizations and reports
+
+**Why it matters:**
+
+Evaluating language models is fragmented. Different papers use different evaluation setups, making comparisons unreliable. OpenEvals provides a unified framework so researchers can run consistent benchmarks and get reproducible results. This helps the community understand where models excel and where they fall short.
+
+---
+
+### MedExplain Evals
+
+**Repository:** [github.com/heilcheng/medexplain-evals](https://github.com/heilcheng/medexplain-evals)
+
+MedExplain Evals is a domain-specific evaluation framework for assessing how well language models explain medical information to patients and non-experts.
+
+**What it does:**
+
+- Evaluates model outputs on medical explanation tasks
+- Measures accuracy, clarity, and safety of health-related responses
+- Provides specialized benchmarks for healthcare use cases
+- Includes a web interface for interactive evaluation
+
+**Why it matters:**
+
+General-purpose benchmarks do not capture how well models communicate medical information. This matters because health misinformation can cause real harm. MedExplain Evals provides targeted evaluation so developers can understand whether a model is suitable for patient-facing applications before deployment.
+
+---
+
+## Proposal
+
+The original proposal submitted to Google DeepMind is included in this repository:
+
+- [Comprehensive Benchmark Suite for Evaluating Gemma Models (PDF)](./Comprehensive%20Benchmark%20Suite%20for%20Evaluating%20Gemma%20Models.pdf)
+
+---
+
+## License
+
+MIT
