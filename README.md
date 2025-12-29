@@ -1,10 +1,10 @@
-# Google Summer of Code 2025 — Google DeepMind
+# Google Summer of Code 2025 / Google DeepMind
 
 ## About
 
-This repository documents my work during Google Summer of Code 2025 with Google DeepMind on the Gemma project. Over the summer, I built open-source tools for evaluating large language models, with a focus on systematic benchmarking and domain-specific assessment.
+Work done during Google Summer of Code 2025 with Google DeepMind on the Gemma project. Built tools for evaluating large language models. Focused on systematic benchmarking and domain-specific assessment.
 
----
+This repository is hosted at [haileycheng.com/DeepMind/](https://haileycheng.com/DeepMind/)
 
 ## Blog
 
@@ -14,19 +14,17 @@ This repository documents my work during Google Summer of Code 2025 with Google 
 
 ### Updates
 
-- **May 7**: Got selected by Google DeepMind for the Gemma project.
-- **May 8**: Got rejected by two other orgs.
+- **May 7:** Selected by Google DeepMind for the Gemma project.
+- **May 8:** Rejected by two other orgs.
 
-I made my proposals public for anyone curious about the GSoC application process.
+Proposals are public for anyone curious about the process.
 
-**What I submitted for DeepMind:**
+**Submission for DeepMind:**
 
-- A proposal (see PDF in this repo)
-- A blog post shared under the demo tag in the Gemma repo: [google-deepmind/gemma#244](https://github.com/google-deepmind/gemma/issues/244)
+- A proposal (PDF attached)
+- A blog post under the demo tag in the Gemma repo: [google-deepmind/gemma#244](https://github.com/google-deepmind/gemma/issues/244)
 
-Feel free to reach out. Good luck to anyone applying for the 2026 batch.
-
----
+Good luck for your GSoC 2026 application.
 
 ## Projects
 
@@ -34,48 +32,46 @@ Feel free to reach out. Good luck to anyone applying for the 2026 batch.
 
 **Repository:** [github.com/heilcheng/openevals](https://github.com/heilcheng/openevals)
 
-OpenEvals is an open-source evaluation framework for large language models. I built this to provide a standardized way to benchmark open-weight models across established academic tasks.
+**Documentation:** [haileycheng.com/openevals](https://haileycheng.com/openevals)
 
-**What it does:**
+OpenEvals is a framework for LLM evaluation. Standardized benchmarking across academic tasks.
 
-- Runs models through standard benchmarks including MMLU, GSM8K, MATH, HumanEval, ARC, TruthfulQA, and more
-- Compares performance across model families: Gemma, Llama, Mistral, Qwen, DeepSeek, and any model on HuggingFace
-- Measures computational efficiency: latency, throughput, and memory usage
-- Generates statistical analyses with confidence intervals
-- Produces publication-ready visualizations and reports
+**Functionality:**
 
-**Why it matters:**
+- Runs standard benchmarks: MMLU, GSM8K, MATH, HumanEval, ARC, TruthfulQA
+- Compares model families: Gemma, Llama, Mistral, Qwen, DeepSeek, HuggingFace
+- Measures efficiency: latency, throughput, memory
+- Statistical analyses with confidence intervals
+- Publication-ready visualizations
 
-Evaluating language models is fragmented. Different papers use different evaluation setups, making comparisons unreliable. OpenEvals provides a unified framework so researchers can run consistent benchmarks and get reproducible results. This helps the community understand where models excel and where they fall short.
+**Significance:**
 
----
+Evaluation is fragmented. OpenEvals unifies it. Consistent benchmarks. Reproducible results.
 
 ### MedExplain Evals
 
 **Repository:** [github.com/heilcheng/medexplain-evals](https://github.com/heilcheng/medexplain-evals)
 
-MedExplain Evals is a domain-specific evaluation framework for assessing how well language models explain medical information to patients and non-experts.
+**Documentation:** [haileycheng.com/medexplain-evals](https://haileycheng.com/medexplain-evals)
 
-**What it does:**
+Domain-specific framework. Assessing model explanations of medical info for non-experts.
 
-- Evaluates model outputs on medical explanation tasks
-- Measures accuracy, clarity, and safety of health-related responses
-- Provides specialized benchmarks for healthcare use cases
-- Includes a web interface for interactive evaluation
+**Functionality:**
 
-**Why it matters:**
+- Evaluates medical explanation tasks
+- Measures accuracy, clarity, safety
+- Specialized benchmarks
+- Interactive web interface
 
-General-purpose benchmarks do not capture how well models communicate medical information. This matters because health misinformation can cause real harm. MedExplain Evals provides targeted evaluation so developers can understand whether a model is suitable for patient-facing applications before deployment.
+**Significance:**
 
----
+General benchmarks miss medical nuances. Misinformation harms. Targeted evaluation for patient-facing applications.
 
 ## Proposal
 
-The original proposal submitted to Google DeepMind is included in this repository:
+Original proposal submitted to Google DeepMind:
 
 - [Comprehensive Benchmark Suite for Evaluating Gemma Models (PDF)](./Comprehensive%20Benchmark%20Suite%20for%20Evaluating%20Gemma%20Models.pdf)
-
----
 
 ## License
 
