@@ -36,12 +36,24 @@
       color: #3C4043;
     }
 
-    /* Sidebar Layout */
+    /* Layout */
+    .layout-container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: white;
+      z-index: 40;
+      border-bottom: 0px solid #e5e7eb;
+    }
+
     @media (min-width: 1024px) {
       .layout-container {
         display: grid;
         grid-template-columns: 280px 1fr;
-        min-height: 100vh;
       }
 
       .sidebar {
@@ -50,6 +62,7 @@
         height: 100vh;
         overflow-y: auto;
         border-right: 1px solid #e5e7eb;
+        border-bottom: none;
       }
 
       .main-content {
@@ -57,6 +70,7 @@
         max-width: 900px;
         margin: 0 auto;
         padding-top: 4rem;
+        width: 100%;
       }
     }
 
@@ -78,22 +92,20 @@
       color: #1a73e8;
     }
 
-    .nav-link.active {
-      background-color: #E8F0FE;
-      color: #1a73e8;
-    }
-
     .card {
+      display: block;
       border: 1px solid #e5e7eb;
       border-radius: 8px;
       padding: 24px;
       background: white;
       transition: box-shadow 0.2s ease, border-color 0.2s ease;
+      text-decoration: none;
     }
 
     .card:hover {
       border-color: #4285F4;
       box-shadow: 0 4px 12px rgba(66, 133, 244, 0.1);
+      cursor: pointer;
     }
 
     .topic-tag {
@@ -114,36 +126,24 @@
   <div class="layout-container">
 
     <!-- Sidebar -->
-    <aside class="sidebar bg-white p-6 flex flex-col justify-between z-50">
+    <aside class="sidebar p-6 flex flex-col justify-between">
       <div>
-        <div class="mb-10 px-4">
+        <div class="mb-8 lg:mb-10 px-4">
           <p class="text-xs font-medium text-deepmind uppercase tracking-widest mb-1">GSoC 2025</p>
           <h1 class="text-xl font-bold text-gray-900 leading-tight">Google<br>DeepMind</h1>
         </div>
 
         <nav class="space-y-1">
-          <a href="#about" class="nav-link">
-            <span>About</span>
-          </a>
-          <a href="#timeline" class="nav-link">
-            <span>Timeline</span>
-          </a>
-          <a href="#blog" class="nav-link">
-            <span>Blog</span>
-          </a>
-          <a href="#projects" class="nav-link">
-            <span>Projects</span>
-          </a>
-          <a href="#documents" class="nav-link">
-            <span>Documents</span>
-          </a>
-          <a href="#resources" class="nav-link">
-            <span>Resources</span>
-          </a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#timeline" class="nav-link">Timeline</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#documents" class="nav-link">Documents</a>
+          <a href="#resources" class="nav-link">Resources</a>
         </nav>
       </div>
 
-      <div class="px-4 mt-8">
+      <div class="px-4 mt-8 hidden lg:block">
         <div class="pt-6 border-t border-gray-100 flex flex-col gap-3">
           <a href="https://github.com/heilcheng/DeepMind" target="_blank"
             class="text-sm text-gray-500 hover:text-deepmind transition-colors flex items-center gap-2">
@@ -153,8 +153,6 @@
             </svg>
             Source Code
           </a>
-          <a href="https://haileycheng.com"
-            class="text-sm text-gray-500 hover:text-deepmind transition-colors">haileycheng.com</a>
         </div>
       </div>
     </aside>
@@ -165,15 +163,197 @@
       <!-- About/Intro -->
       <section id="about" class="mb-20 pt-8 lg:pt-20">
         <h1 class="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-6">
-          Work at <span class="text-deepmind">Google DeepMind</span>
+          My Journey with <span class="text-deepmind">Google DeepMind</span>
         </h1>
         <p class="text-xl text-gray-600 max-w-2xl leading-relaxed">
-          Building open-source evaluation tools for large language models on the Gemma project. Developed systematic
-          benchmarking and domain-specific assessment frameworks.
+          I spent my summer building open-source evaluation tools for the Gemma project. My work focused on creating
+          systematic benchmarking frameworks and domain-specific assessments to improve how we understand Large Language
+          Models.
         </p>
-  </div>
-  </footer>
+      </section>
 
+      <!-- Timeline -->
+      <section id="timeline" class="mb-20">
+        <h2 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-6 border-b border-gray-200 pb-2">
+          Timeline</h2>
+        <div class="space-y-4">
+          <div class="flex flex-col sm:flex-row gap-4 p-5 bg-blue-50/50 rounded-lg border border-blue-100">
+            <div class="w-24 shrink-0 font-mono text-deepmind font-medium">May 7</div>
+            <div>
+              <p class="font-semibold text-gray-900">Selected for Google Summer of Code</p>
+              <p class="text-gray-600 text-sm mt-1">Thrilled to be accepted by Google DeepMind to work on Gemma.</p>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 p-5 rounded-lg border border-dashed border-gray-200">
+            <div class="w-24 shrink-0 font-mono text-gray-400">May 8</div>
+            <div>
+              <p class="text-gray-500 text-sm">Reflecting on the journey: Rejections from other organizations ultimately
+                led me to the right place.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience (Blog) -->
+      <section id="experience" class="mb-20">
+        <h2 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-6 border-b border-gray-200 pb-2">
+          Experience</h2>
+        <a href="https://medium.com/@heilcheng2-c/how-i-landed-a-google-deepmind-project-in-google-summer-of-code-2025-a-step-by-step-guide-ccb2dee66769"
+          target="_blank" class="card group">
+          <div class="flex flex-col gap-2">
+            <h3 class="text-lg font-bold text-gray-900 group-hover:text-deepmind transition-colors">How I Landed a
+              DeepMind Project</h3>
+            <p class="text-gray-600 mb-4 text-sm leading-relaxed">I wrote a comprehensive guide sharing my application
+              process, including how I crafted my proposal and navigated the selection phase, to help future applicants.
+            </p>
+            <div class="flex items-center text-sm font-medium text-deepmind">
+              Read on Medium
+              <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </div>
+          </div>
+        </a>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="mb-20">
+        <h2 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-6 border-b border-gray-200 pb-2">
+          Projects</h2>
+        <div class="grid gap-6">
+
+          <!-- OpenEvals -->
+          <a href="https://github.com/heilcheng/openevals" target="_blank" class="card group">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-lg font-bold text-gray-900 group-hover:text-deepmind transition-colors">OpenEvals</h3>
+              <span class="topic-tag">Analysis</span>
+            </div>
+            <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+              A standardized framework for evaluating LLMs. It benchmarks models on MMLU, GSM8K, MATH, and HumanEval,
+              allowing for fair comparisons across Gemma, Llama, and Mistral families.
+            </p>
+            <div
+              class="text-sm font-medium text-gray-500 group-hover:text-deepmind transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+              View Repository
+            </div>
+          </a>
+
+          <!-- MedExplain Evals -->
+          <a href="https://github.com/heilcheng/medexplain-evals" target="_blank" class="card group">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-lg font-bold text-gray-900 group-hover:text-deepmind transition-colors">MedExplain Evals
+              </h3>
+              <span class="topic-tag">Healthcare</span>
+            </div>
+            <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+              A domain-specific evaluation tool to assess how accurately and clearly AI explains medical concepts.
+              Includes interactive benchmarks designed for patient-facing applications.
+            </p>
+            <div
+              class="text-sm font-medium text-gray-500 group-hover:text-deepmind transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+              View Repository
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Documents -->
+      <section id="documents" class="mb-20">
+        <h2 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-6 border-b border-gray-200 pb-2">
+          Documents</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <a href="./Comprehensive%20Benchmark%20Suite%20for%20Evaluating%20Gemma%20Models.pdf" target="_blank"
+            class="card group hover:border-deepmind">
+            <div class="flex items-center gap-3 mb-2">
+              <svg class="w-5 h-5 text-gray-400 group-hover:text-deepmind" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span class="font-semibold text-gray-900 group-hover:text-deepmind transition-colors">GSoC Proposal</span>
+            </div>
+            <p class="text-xs text-gray-500">View PDF Document</p>
+          </a>
+
+          <a href="https://github.com/google-deepmind/gemma/issues/244" target="_blank"
+            class="card group hover:border-deepmind">
+            <div class="flex items-center gap-3 mb-2">
+              <svg class="w-5 h-5 text-gray-400 group-hover:text-deepmind" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+              <span class="font-semibold text-gray-900 group-hover:text-deepmind transition-colors">Demo on Gemma</span>
+            </div>
+            <p class="text-xs text-gray-500">View GitHub Issue</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Resources -->
+      <section id="resources" class="mb-20">
+        <h2 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-6 border-b border-gray-200 pb-2">GSoC
+          Resources</h2>
+        <div class="space-y-3">
+          <a href="https://gsocguide.vercel.app" target="_blank"
+            class="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg hover:border-deepmind hover:bg-deepmind-hover/20 transition-all group">
+            <div>
+              <span class="font-medium text-gray-900 group-hover:text-deepmind transition-colors">GSoC Guide</span>
+              <span class="text-gray-500 text-sm ml-2">— Tips & Resources</span>
+            </div>
+            <svg class="w-4 h-4 text-gray-400 group-hover:text-deepmind" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+          <a href="https://github.com/SammanSarkar/GSoC_archive_2025" target="_blank"
+            class="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg hover:border-deepmind hover:bg-deepmind-hover/20 transition-all group">
+            <div>
+              <span class="font-medium text-gray-900 group-hover:text-deepmind transition-colors">Proposals
+                Archive</span>
+              <span class="text-gray-500 text-sm ml-2">— Accepted Proposals</span>
+            </div>
+            <svg class="w-4 h-4 text-gray-400 group-hover:text-deepmind" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+          <a href="https://www.gsocorganizations.dev" target="_blank"
+            class="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg hover:border-deepmind hover:bg-deepmind-hover/20 transition-all group">
+            <div>
+              <span class="font-medium text-gray-900 group-hover:text-deepmind transition-colors">Organizations
+                DB</span>
+              <span class="text-gray-500 text-sm ml-2">— Search participating orgs</span>
+            </div>
+            <svg class="w-4 h-4 text-gray-400 group-hover:text-deepmind" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <footer class="text-center text-sm text-gray-400 py-8 border-t border-gray-100">
+        <p>Made public for GSoC 2026 applicants.</p>
+        <div class="mt-2 text-xs">
+          <a href="https://haileycheng.com" class="hover:text-deepmind transition-colors">Hailey Cheng</a> &bull;
+          <a href="https://github.com/heilcheng/DeepMind" class="hover:text-deepmind transition-colors">View Source</a>
+        </div>
+      </footer>
+
+    </main>
+  </div>
 </body>
 
 </html>

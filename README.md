@@ -2,7 +2,7 @@
 
 ## About
 
-Work done during Google Summer of Code 2025 with Google DeepMind on the Gemma project. Built tools for evaluating large language models. Focused on systematic benchmarking and domain-specific assessment.
+My journey during Google Summer of Code 2025 with Google DeepMind on the Gemma project. I built tools for evaluating large language models, focusing on systematic benchmarking and domain-specific assessment.
 
 This repository is hosted at [haileycheng.com/DeepMind/](https://haileycheng.com/DeepMind/)
 
@@ -15,7 +15,7 @@ This repository is hosted at [haileycheng.com/DeepMind/](https://haileycheng.com
 ### Updates
 
 - **May 7:** Selected by Google DeepMind for the Gemma project.
-- **May 8:** Rejected by two other orgs.
+- **May 8:** Rejections from two other orgs, leading me here.
 
 Proposals are public for anyone curious about the process.
 
@@ -69,9 +69,9 @@ General benchmarks miss medical nuances. Misinformation harms. Targeted evaluati
 
 ## Resources for GSoC Applicants
 
-- [GSoC Guide](https://gsocguide.vercel.app) — Comprehensive platform with tips and resources.
-- [GSoC 2025 Proposals Archive](https://github.com/SammanSarkar/GSoC_archive_2025) — Archive of 120+ accepted proposals.
-- [GSoC Organizations](https://www.gsocorganizations.dev) — Search and filter participating orgs.
+- [GSoC Guide](https://gsocguide.vercel.app): Comprehensive platform with tips and resources.
+- [GSoC 2025 Proposals Archive](https://github.com/SammanSarkar/GSoC_archive_2025): Archive of 120+ accepted proposals.
+- [GSoC Organizations](https://www.gsocorganizations.dev): Search and filter participating orgs.
 
 ## Proposal
 
