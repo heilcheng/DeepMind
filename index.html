@@ -3,29 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GSoC 2025 — Google DeepMind</title>
+  <title>GSoC 2025 / Google DeepMind</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
+            sans: ['Outfit', 'system-ui', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace'],
           },
           colors: {
             deepmind: {
-              DEFAULT: '#4285F4',
-              dark: '#1a73e8',
+              light: '#6ee7b7', // Emerald 300
+              DEFAULT: '#0ea5e9', // Sky 500
+              dark: '#0369a1', // Sky 700
+            },
+            glass: {
+              surface: 'rgba(255, 255, 255, 0.65)',
+              border: 'rgba(255, 255, 255, 0.4)',
+              hover: 'rgba(255, 255, 255, 0.85)',
             }
           },
           animation: {
-            'fade-in': 'fadeIn 0.5s ease-out forwards',
-            'slide-up': 'slideUp 0.5s ease-out forwards',
-            'slide-in-left': 'slideInLeft 0.4s ease-out forwards',
+            'fade-in': 'fadeIn 0.6s ease-out forwards',
+            'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
           },
           keyframes: {
             fadeIn: {
@@ -36,211 +41,239 @@
               '0%': { opacity: '0', transform: 'translateY(20px)' },
               '100%': { opacity: '1', transform: 'translateY(0)' },
             },
-            slideInLeft: {
-              '0%': { opacity: '0', transform: 'translateX(-10px)' },
-              '100%': { opacity: '1', transform: 'translateX(0)' },
-            },
           },
+          backdropBlur: {
+            xs: '2px',
+          }
         }
       }
     }
   </script>
   <style>
+    body {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0fdf4 100%);
+      background-attachment: fixed;
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .glass-card:hover {
+      background: rgba(255, 255, 255, 0.85);
+      border-color: rgba(255, 255, 255, 0.8);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.1), 0 4px 6px -2px rgba(14, 165, 233, 0.05);
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    
     .animate-delay-100 { animation-delay: 100ms; }
     .animate-delay-200 { animation-delay: 200ms; }
     .animate-delay-300 { animation-delay: 300ms; }
     .animate-delay-400 { animation-delay: 400ms; }
-    .animate-delay-500 { animation-delay: 500ms; }
     
     .opacity-0-initial { opacity: 0; }
-    
-    .card-hover {
-      transition: all 0.2s ease;
-    }
-    .card-hover:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    
-    .link-hover {
-      transition: all 0.15s ease;
-    }
-    .link-hover:hover {
-      transform: translateX(4px);
-    }
-    
-    /* Subtle gradient background */
-    .bg-gradient-subtle {
-      background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 100%);
-    }
   </style>
 </head>
-<body class="font-sans antialiased bg-gradient-subtle text-zinc-900 min-h-screen">
+<body class="font-sans antialiased text-slate-800 min-h-screen selection:bg-sky-200 selection:text-sky-900">
   
   <!-- Navigation -->
-  <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-zinc-200">
+  <nav class="sticky top-0 z-50 glass-nav">
     <div class="max-w-3xl mx-auto px-6 py-4">
       <div class="flex items-center justify-between">
-        <a href="#" class="text-sm font-semibold text-zinc-900">GSoC 2025</a>
+        <a href="#" class="text-sm font-semibold text-slate-800 tracking-tight hover:text-sky-600 transition-colors">GSoC 2025 / DeepMind</a>
         <div class="flex items-center gap-6">
-          <a href="#projects" class="text-sm text-zinc-600 hover:text-zinc-900 transition-colors">Projects</a>
-          <a href="#resources" class="text-sm text-zinc-600 hover:text-zinc-900 transition-colors">Resources</a>
-          <a href="https://github.com/heilcheng/DeepMind" target="_blank" class="text-sm text-zinc-600 hover:text-zinc-900 transition-colors">GitHub</a>
+          <a href="#projects" class="text-sm text-slate-600 hover:text-sky-600 transition-colors font-medium">Projects</a>
+          <a href="#resources" class="text-sm text-slate-600 hover:text-sky-600 transition-colors font-medium">Resources</a>
+          <a href="https://github.com/heilcheng/DeepMind" target="_blank" class="text-sm text-slate-600 hover:text-sky-600 transition-colors font-medium">GitHub</a>
         </div>
       </div>
     </div>
   </nav>
 
-  <main class="max-w-3xl mx-auto px-6 py-16">
+  <main class="max-w-3xl mx-auto px-6 py-20">
     
     <!-- Header -->
-    <header class="mb-16 opacity-0-initial animate-fade-in">
-      <p class="text-sm font-medium text-deepmind mb-3">Google Summer of Code 2025</p>
-      <h1 class="text-4xl font-bold tracking-tight mb-4">
-        Work at <span class="text-deepmind">Google DeepMind</span>
+    <header class="mb-20 opacity-0-initial animate-fade-in text-center sm:text-left">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100/50 border border-sky-200/50 text-sky-700 text-xs font-semibold uppercase tracking-wide mb-6">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+        </span>
+        Google Summer of Code 2025
+      </div>
+      <h1 class="text-5xl font-bold tracking-tight mb-6 text-slate-900 bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700">
+        Work at <span class="bg-gradient-to-r from-sky-500 to-teal-400 bg-clip-text text-transparent">Google DeepMind</span>
       </h1>
-      <p class="text-lg text-zinc-600 max-w-xl">
+      <p class="text-xl text-slate-600 max-w-xl leading-relaxed">
         Building open-source evaluation tools for large language models on the Gemma project.
       </p>
     </header>
 
     <!-- Timeline -->
-    <section class="mb-16 opacity-0-initial animate-slide-up animate-delay-100">
-      <h2 class="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-6">Timeline</h2>
+    <section class="mb-20 opacity-0-initial animate-slide-up animate-delay-100">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-8 pl-1">Timeline</h2>
       <div class="space-y-4">
-        <div class="flex items-start gap-4 p-4 bg-white rounded-lg border border-zinc-200">
-          <span class="text-sm font-mono text-zinc-500 w-20 shrink-0">May 7</span>
+        <div class="flex items-center gap-6 p-5 glass-card rounded-2xl">
+          <span class="text-sm font-mono text-sky-600 bg-sky-50/50 px-3 py-1 rounded-md border border-sky-100/50">May 7</span>
           <div>
-            <p class="text-sm font-medium text-zinc-900">Selected by Google DeepMind</p>
-            <p class="text-sm text-zinc-600">Accepted for the Gemma project</p>
+            <p class="text-base font-semibold text-slate-900">Selected by Google DeepMind</p>
+            <p class="text-sm text-slate-500">Accepted for the Gemma project</p>
           </div>
         </div>
-        <div class="flex items-start gap-4 p-4 bg-white rounded-lg border border-zinc-200">
-          <span class="text-sm font-mono text-zinc-500 w-20 shrink-0">May 8</span>
+        <div class="flex items-center gap-6 p-5 glass-card rounded-2xl opacity-75">
+          <span class="text-sm font-mono text-slate-400 px-3 py-1">May 8</span>
           <div>
-            <p class="text-sm text-zinc-600">Rejected by two other organizations</p>
+            <p class="text-sm text-slate-500">Rejected by two other organizations</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Blog -->
-    <section class="mb-16 opacity-0-initial animate-slide-up animate-delay-200">
-      <h2 class="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-6">Blog</h2>
+    <section class="mb-20 opacity-0-initial animate-slide-up animate-delay-200">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-8 pl-1">Blog</h2>
       <a href="https://medium.com/@heilcheng2-c/how-i-landed-a-google-deepmind-project-in-google-summer-of-code-2025-a-step-by-step-guide-ccb2dee66769" 
          target="_blank"
-         class="block p-6 bg-white rounded-lg border border-zinc-200 card-hover">
-        <p class="text-base font-medium text-zinc-900 mb-2">How I Landed a Google DeepMind Project in GSoC 2025</p>
-        <p class="text-sm text-zinc-600 mb-3">A step-by-step guide on the application process</p>
-        <span class="text-sm text-deepmind font-medium">Read on Medium</span>
+         class="group block p-8 glass-card rounded-2xl">
+        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-sky-700 transition-colors">How I Landed a DeepMind Project</h3>
+            <p class="text-slate-600 mb-4 leading-relaxed">A comprehensive step-by-step guide on the application process, proposal writing, and selection.</p>
+            <div class="flex items-center text-sm font-medium text-sky-600 group-hover:translate-x-1 transition-transform">
+              Read on Medium
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </div>
+          </div>
+        </div>
       </a>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="mb-16 opacity-0-initial animate-slide-up animate-delay-300">
-      <h2 class="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-6">Projects</h2>
-      <div class="space-y-4">
+    <section id="projects" class="mb-20 opacity-0-initial animate-slide-up animate-delay-300">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-8 pl-1">Projects</h2>
+      <div class="grid gap-6">
         
         <!-- OpenEvals -->
-        <div class="p-6 bg-white rounded-lg border border-zinc-200 card-hover">
-          <div class="flex items-start justify-between mb-3">
-            <h3 class="text-base font-semibold text-zinc-900">OpenEvals</h3>
-            <span class="text-xs font-medium text-deepmind bg-blue-50 px-2 py-1 rounded">LLM Benchmarking</span>
+        <div class="p-8 glass-card rounded-2xl group">
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="text-lg font-bold text-slate-900">OpenEvals</h3>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-sky-700 bg-sky-100/80 px-2 py-1 rounded-sm">LLM Benchmarking</span>
           </div>
-          <p class="text-sm text-zinc-600 mb-4">
-            Open-source evaluation framework for large language models. Runs models through standard benchmarks including MMLU, GSM8K, MATH, HumanEval, ARC, and TruthfulQA. Compares performance across model families and measures computational efficiency.
+          <p class="text-slate-600 mb-6 leading-relaxed text-sm">
+            Open-source framework. Benchmarks MMLU, GSM8K, MATH, HumanEval. Compares Gemma, Llama, Mistral capabilities and efficiency.
           </p>
-          <div class="flex items-center gap-4">
-            <a href="https://github.com/heilcheng/openevals" target="_blank" class="text-sm text-zinc-500 hover:text-zinc-900 font-mono transition-colors">
-              github.com/heilcheng/openevals
-            </a>
-          </div>
+          <a href="https://github.com/heilcheng/openevals" target="_blank" class="inline-flex items-center text-sm font-medium text-slate-500 hover:text-sky-600 transition-colors">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            github.com/heilcheng/openevals
+          </a>
         </div>
 
         <!-- MedExplain Evals -->
-        <div class="p-6 bg-white rounded-lg border border-zinc-200 card-hover">
-          <div class="flex items-start justify-between mb-3">
-            <h3 class="text-base font-semibold text-zinc-900">MedExplain Evals</h3>
-            <span class="text-xs font-medium text-deepmind bg-blue-50 px-2 py-1 rounded">Healthcare AI</span>
+        <div class="p-8 glass-card rounded-2xl group">
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="text-lg font-bold text-slate-900">MedExplain Evals</h3>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-700 bg-teal-100/80 px-2 py-1 rounded-sm">Healthcare AI</span>
           </div>
-          <p class="text-sm text-zinc-600 mb-4">
-            Domain-specific evaluation framework for assessing how well language models explain medical information to patients. Measures accuracy, clarity, and safety of health-related responses for patient-facing applications.
+          <p class="text-slate-600 mb-6 leading-relaxed text-sm">
+            Domain-specific evaluation. Assesses accuracy, clarity, and safety of medical explanations. Includes interactive web benchmarks.
           </p>
-          <div class="flex items-center gap-4">
-            <a href="https://github.com/heilcheng/medexplain-evals" target="_blank" class="text-sm text-zinc-500 hover:text-zinc-900 font-mono transition-colors">
-              github.com/heilcheng/medexplain-evals
-            </a>
-          </div>
+          <a href="https://github.com/heilcheng/medexplain-evals" target="_blank" class="inline-flex items-center text-sm font-medium text-slate-500 hover:text-teal-600 transition-colors">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            github.com/heilcheng/medexplain-evals
+          </a>
         </div>
-
       </div>
     </section>
 
     <!-- Documents -->
-    <section class="mb-16 opacity-0-initial animate-slide-up animate-delay-400">
-      <h2 class="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-6">Documents</h2>
-      <div class="space-y-2">
+    <section class="mb-20 opacity-0-initial animate-slide-up animate-delay-400">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-8 pl-1">Documents</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
         <a href="./Comprehensive%20Benchmark%20Suite%20for%20Evaluating%20Gemma%20Models.pdf" 
            target="_blank"
-           class="flex items-center justify-between p-4 bg-white rounded-lg border border-zinc-200 link-hover">
-          <div class="flex items-center gap-3">
-            <svg class="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-            <span class="text-sm font-medium text-zinc-900">GSoC Proposal</span>
+           class="flex flex-col justify-between p-6 glass-card rounded-2xl hover:bg-white/90">
+          <div class="mb-4">
+            <div class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-500 mb-3">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 2H7a2 2 0 00-2 2v15a2 2 0 002 2z"/></svg>
+            </div>
+            <p class="font-bold text-slate-900">GSoC Proposal</p>
           </div>
-          <span class="text-sm text-zinc-500">PDF</span>
+          <span class="text-xs font-mono text-slate-400">PDF Document</span>
         </a>
+
         <a href="https://github.com/google-deepmind/gemma/issues/244" 
            target="_blank"
-           class="flex items-center justify-between p-4 bg-white rounded-lg border border-zinc-200 link-hover">
-          <div class="flex items-center gap-3">
-            <svg class="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-            </svg>
-            <span class="text-sm font-medium text-zinc-900">Demo on Gemma Repository</span>
+           class="flex flex-col justify-between p-6 glass-card rounded-2xl hover:bg-white/90">
+          <div class="mb-4">
+            <div class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-700 mb-3">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </div>
+            <p class="font-bold text-slate-900">Demo on Gemma</p>
           </div>
-          <span class="text-sm text-zinc-500">GitHub Issue</span>
+          <span class="text-xs font-mono text-slate-400">GitHub Issue</span>
         </a>
       </div>
     </section>
 
     <!-- Resources for GSoC Applicants -->
-    <section id="resources" class="mb-16 opacity-0-initial animate-slide-up animate-delay-500">
-      <h2 class="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-6">Resources for GSoC Applicants</h2>
-      <div class="space-y-2">
+    <section id="resources" class="mb-20 opacity-0-initial animate-slide-up animate-delay-400">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-8 pl-1">Resources for GSoC Applicants</h2>
+      <div class="space-y-3">
         <a href="https://gsocguide.vercel.app" 
            target="_blank"
-           class="flex items-center justify-between p-4 bg-white rounded-lg border border-zinc-200 link-hover">
-          <div>
-            <p class="text-sm font-medium text-zinc-900">GSoC Guide</p>
-            <p class="text-sm text-zinc-500">Comprehensive platform with tips and curated resources</p>
+           class="flex items-center justify-between p-5 glass-card rounded-xl hover:bg-white/90">
+          <div class="flex items-center gap-4">
+             <div class="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center text-orange-500">
+               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+             </div>
+             <div>
+               <p class="text-sm font-bold text-slate-900">GSoC Guide</p>
+               <p class="text-sm text-slate-500">Comprehensive tips & resources</p>
+             </div>
           </div>
-          <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-          </svg>
+          <svg class="w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </a>
+
         <a href="https://github.com/SammanSarkar/GSoC_archive_2025" 
            target="_blank"
-           class="flex items-center justify-between p-4 bg-white rounded-lg border border-zinc-200 link-hover">
-          <div>
-            <p class="text-sm font-medium text-zinc-900">GSoC 2025 Proposals Archive</p>
-            <p class="text-sm text-zinc-500">Community archive of 120+ accepted proposals</p>
+           class="flex items-center justify-between p-5 glass-card rounded-xl hover:bg-white/90">
+          <div class="flex items-center gap-4">
+             <div class="w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center text-purple-500">
+               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+             </div>
+             <div>
+               <p class="text-sm font-bold text-slate-900">GSoC 2025 Proposals Archive</p>
+               <p class="text-sm text-slate-500">Archive of 120+ accepted proposals</p>
+             </div>
           </div>
-          <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-          </svg>
+          <svg class="w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </a>
+
         <a href="https://www.gsocorganizations.dev" 
            target="_blank"
-           class="flex items-center justify-between p-4 bg-white rounded-lg border border-zinc-200 link-hover">
-          <div>
-            <p class="text-sm font-medium text-zinc-900">GSoC Organizations</p>
-            <p class="text-sm text-zinc-500">Search and filter participating organizations</p>
+           class="flex items-center justify-between p-5 glass-card rounded-xl hover:bg-white/90">
+          <div class="flex items-center gap-4">
+             <div class="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-500">
+               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+             </div>
+             <div>
+               <p class="text-sm font-bold text-slate-900">GSoC Organizations Search</p>
+               <p class="text-sm text-slate-500">Filter participating orgs</p>
+             </div>
           </div>
-          <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-          </svg>
+          <svg class="w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </a>
       </div>
     </section>
@@ -248,12 +281,17 @@
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-zinc-200 bg-white">
+  <footer class="border-t border-white/40 bg-white/30 backdrop-blur-md">
     <div class="max-w-3xl mx-auto px-6 py-8">
-      <p class="text-sm text-zinc-500 text-center">
-        Made public for GSoC 2026 applicants. 
-        <a href="https://github.com/heilcheng/DeepMind" class="text-zinc-700 hover:text-deepmind transition-colors">View source</a>
-      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-slate-500">
+          Made public for GSoC 2026 applicants.
+        </p>
+        <div class="flex items-center gap-6">
+          <a href="https://haileycheng.com" class="text-sm text-slate-500 hover:text-sky-600 transition-colors">haileycheng.com</a>
+          <a href="https://github.com/heilcheng/DeepMind" class="text-sm text-slate-500 hover:text-sky-600 transition-colors">View Source</a>
+        </div>
+      </div>
     </div>
   </footer>
 

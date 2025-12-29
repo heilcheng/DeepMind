@@ -67,6 +67,12 @@ Domain-specific framework. Assessing model explanations of medical info for non-
 
 General benchmarks miss medical nuances. Misinformation harms. Targeted evaluation for patient-facing applications.
 
+## Resources for GSoC Applicants
+
+- [GSoC Guide](https://gsocguide.vercel.app) — Comprehensive platform with tips and resources.
+- [GSoC 2025 Proposals Archive](https://github.com/SammanSarkar/GSoC_archive_2025) — Archive of 120+ accepted proposals.
+- [GSoC Organizations](https://www.gsocorganizations.dev) — Search and filter participating orgs.
+
 ## Proposal
 
 Original proposal submitted to Google DeepMind:
